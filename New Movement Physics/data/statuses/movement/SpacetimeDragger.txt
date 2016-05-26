@@ -1,0 +1,6 @@
+Status: SpacetimeDragger
+	Name: Spacetime Dragger
+	Description: Is affected by Space-time drag, slowing down over time even with no particular acceleration.
+	Icon: FtlIcon
+	Color: #99ff1c
+	movement_status_effects::EnableSpacetimeDrag()

@@ -1,0 +1,24 @@
+Subsystem: MovementTester
+	Name: Movement Tester
+	Description: Allows toggling movement types
+	BaseColor: #73f640
+	TypeColor: #67f63c
+	Elevation: 3
+
+	Tags: Category:Equipment, LowMaint, DefaultUnlock, Ability:ToggleSpaceDrag, Ability:ToggleRelativistic
+	Hull: Flagship, Station
+
+	Size := HexSize * Hexes
+
+
+
+
+	Module: Core
+		Hex.HP := Hex.HP * 3
+		Hex.BuildCost := 0
+		Hex.Mass := 0.1
+
+		Sprite: techFTL
+
+	Module: Default
+		Hex.BuildCost := 0

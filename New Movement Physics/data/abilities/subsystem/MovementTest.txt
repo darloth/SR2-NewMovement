@@ -1,0 +1,14 @@
+Ability: ToggleSpaceDrag
+	Name: Toggle Spacetime Dragging
+	Description: Toggles spacetime dragging on object
+	Icon: FtlIcon
+
+
+
+
+	IsStatusToggle(SpacetimeDragger)
+Ability: ToggleRelativistic
+	Name: Toggle Relativistic Acceleration
+	Description: toggles rel accel on object
+	Icon: FtlIcon
+	IsStatusToggle(ObeysLightspeed)

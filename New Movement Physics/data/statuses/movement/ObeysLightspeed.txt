@@ -1,0 +1,6 @@
+Status: ObeysLightspeed
+	Name: Obeys Lightspeed
+	Description: Uses relativistic acceleration which is less and less effective as it approaches a given lightspeed value.
+	Icon: FtlIcon
+	Color: #06ffdd
+	movement_status_effects::EnableRelativisticAcceleration()

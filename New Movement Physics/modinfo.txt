@@ -1,0 +1,13 @@
+	Name: New Movement Physics
+	Compatibility: 200
+	Description: <<
+		(Reworked into hopefully a fun mod for everyone!)
+
+		This mod increases the thrust of every engine type, but adds linear velocity drag.  This makes ships accelerate a little slower than they expect (but way faster than unmodded), and slow down a little faster than that.  It also means that any given ship will reach a top speed based on its thrust to mass ratio.  
+
+		From preliminary testing and balancing, this top speed should be slower than any reasonably sized Hyperdrive, so you'll want to use some sort of FTL to get around.  Slowboating it will certainly still work perfectly well, but it takes a bit longer under this movement system.
+
+		It also generally improves maneuverability at low velocities as the drag reduces unwanted lateral velocity.
+
+		(Icon is still by Lorc)
+	>>
