@@ -5,7 +5,7 @@ Subsystem: MovementTester
 	TypeColor: #67f63c
 	Elevation: 3
 
-	Tags: Category:Equipment, LowMaint, DefaultUnlock, Ability:ToggleSpaceDrag, Ability:ToggleRelativistic
+	Tags: Category:Equipment, LowMaint, Ability:ToggleSpaceDrag, Ability:ToggleRelativistic
 	Hull: Flagship, Station
 
 	Size := HexSize * Hexes

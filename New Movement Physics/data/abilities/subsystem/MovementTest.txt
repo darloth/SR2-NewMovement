@@ -6,7 +6,7 @@ Ability: ToggleSpaceDrag
 
 
 
-	IsStatusToggle(SpacetimeDragger)
+	IsStatusToggle(IgnoreDrag)
 Ability: ToggleRelativistic
 	Name: Toggle Relativistic Acceleration
 	Description: toggles rel accel on object

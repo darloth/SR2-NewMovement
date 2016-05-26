@@ -7,7 +7,7 @@
 
 		From preliminary testing and balancing, this top speed should be slower than any reasonably sized Hyperdrive, so you'll want to use some sort of FTL to get around.  Slowboating it will certainly still work perfectly well, but it takes a bit longer under this movement system.
 
-		It also generally improves maneuverability at low velocities as the drag reduces unwanted lateral velocity.
+		It also generally improves maneuverability at low velocities as the drag reduces unwanted lateral velocity, and this is further improved by a general increase to turning speeds.  (As a result this mod is not compatible with my Faster Turning Speed mod as it incorporates that functionality)
 
 		(Icon is still by Lorc)
 	>>

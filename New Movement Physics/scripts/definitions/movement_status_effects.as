@@ -24,18 +24,18 @@ from components.ObjectManager import getDefenseDesign;
 import generic_effects;
 from generic_effects import GenericEffect;
 
-class EnableSpacetimeDrag : GenericEffect {
-	Document doc("Enables spacetime drag on the object.");
+class DisableSpacetimeDrag : GenericEffect {
+	Document doc("Disables spacetime drag on the object.");
 
 #section server
 	void enable(Object& obj, any@ data) const override {
 		if(obj.hasMover)
-			obj.setSpacetimeDrag(true);
+			obj.setSpacetimeDrag(false);
 	}
 
 	void disable(Object& obj, any@ data) const override {
 		if(obj.hasMover)
-			obj.setSpacetimeDrag(false);
+			obj.setSpacetimeDrag(true);
 	}
 #section all
 };

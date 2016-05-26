@@ -237,10 +237,11 @@ tidy class Mover : Component_Mover, Savable {
 	bool FTL = false;
 	double FTLSpeed = 1.0;
 	
-	bool spacetimeDrag = false;
+	bool spacetimeDrag = true;
 	double spacetimeDragCoefficient = baseSpacetimeDragCoefficient;
 	double spacetimeDragCoefficientFactor = 0.0;
 	
+	// Don't use this until you fix why it isn't working - ships will overshoot their destinations massively and somehow have more acceleration than they should, even though it's intended to reduce acceleration!
 	bool relativisticAccel = false;
 	double lightspeed = baseLightspeed;
 	double lightspeedFactor = 0.0;
@@ -520,9 +521,9 @@ tidy class Mover : Component_Mover, Savable {
 		spacetimeDragCoefficientFactor += mod;
 		spacetimeDragCoefficient = baseSpacetimeDragCoefficient * (1.0 + spacetimeDragCoefficientFactor);
 		moverDelta = true;
-		
 	}
 	
+	// Don't use this until you fix why it isn't working - ships will overshoot their destinations massively and somehow have more acceleration than they should, even though it's intended to reduce acceleration!
 	void setRelativisticAccel(const bool value) {
 		if(relativisticAccel != value) {
 			relativisticAccel = value;
@@ -861,10 +862,13 @@ tidy class Mover : Component_Mover, Savable {
 		compDestination = dest;
 
 		double a = accel;
+		
+		// Don't use this until you fix why it isn't working - ships will overshoot their destinations massively and somehow have more acceleration than they should, even though it's intended to reduce acceleration!
 		if(relativisticAccel) {
 			a = accel * max(0.01, 1 - (obj.velocity.length / lightspeed)^2);
 		}
 		
+		// This code handles spacetime drag - in short, take a fraction of how fast you're going, and subtract it from how fast you're going.
 		if(spacetimeDrag) {
 			vec3d drag = obj.velocity * spacetimeDragCoefficient * time;
 			obj.velocity = obj.velocity - drag;
