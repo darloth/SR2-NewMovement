@@ -5,7 +5,7 @@ import ftl;
 
 const double straighDot = 0.99999;
 
-const double baseSpacetimeDragCoefficient = 0.1;
+const double baseSpacetimeDragCoefficient = 0.09;
 const double baseLightspeed = 700;
 
 //Rotation rate in radians/s
