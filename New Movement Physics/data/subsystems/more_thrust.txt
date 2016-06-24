@@ -1,2 +1,2 @@
 Template: tag/HullSystem
-	AddShipModifier: ThrustFactor(8)
+	AddShipModifier: ThrustFactor(6)

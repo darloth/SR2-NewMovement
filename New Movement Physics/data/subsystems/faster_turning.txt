@@ -1,2 +1,2 @@
 Template: tag/HullSystem
-	AddShipModifier: TurnThrustFactor(1.875)
+	AddShipModifier: TurnThrustFactor(2.2)
