@@ -1,0 +1,8 @@
+	Name: NMP Graviton Adjust
+	Compatibility: 200
+	Derives From: New Movement Physics
+	Description: <<
+		Adjusts graviton engines under the new movement physics, so that they have strongly increased acceleration and deceleration and turn rate, but also strongly increased drag (so they have a sharply limited top speed compared to others).
+
+		This makes them -amazingly- maneuverable at short range, able to repositon in-systems very quickly.  However, over the length of an entire system's width or more, a rocket engine will beat them in a straight line race, and so they're terrible for going between star systems.
+	>>
