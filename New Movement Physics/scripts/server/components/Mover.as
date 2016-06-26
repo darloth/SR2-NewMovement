@@ -6,7 +6,9 @@ import ftl;
 const double straighDot = 0.99999;
 
 const double baseSpacetimeDragCoefficient = 0.09;
+const double offAxisThrustMultiplier = 0.35;
 const double baseLightspeed = 700;
+const double maxDistMultiplier = 1.0; // multiplies objects radius to find maximum braking distance.
 
 //Rotation rate in radians/s
 const double shipRotSpeed = 0.1;
@@ -872,6 +874,19 @@ tidy class Mover : Component_Mover, Savable {
 		if(spacetimeDrag) {
 			vec3d drag = obj.velocity * spacetimeDragCoefficient * time;
 			obj.velocity = obj.velocity - drag;
+			
+			// code for magically slowing down even better when close to the target area.
+			double brakingDistance = obj.radius * maxDistMultiplier;
+			double distanceToDestination = (compDestination - obj.position).length;
+			if (distanceToDestination > 0 && brakingDistance > 0)
+			{
+				if (distanceToDestination < brakingDistance)
+				{
+					double brakingFactor = (1 - (distanceToDestination / brakingDistance)) * 0.8;
+					vec3d magicalBrakingDrag = obj.velocity * brakingFactor;
+					obj.velocity = obj.velocity - magicalBrakingDrag;
+				}	
+			}
 		}
 		
 		obj.position += obj.velocity * time;
@@ -1061,6 +1076,35 @@ tidy class Mover : Component_Mover, Savable {
 				}
 				else if(!vectorMovement) {
 					targRot = quaterniond_fromVecToVec(vec3d_front(), dest - obj.position, vec3d_up());
+					// Added code to apply a little bit of thrust even when not rotated.
+					{
+						double dot = targRot.dot(obj.rotation);
+						if(dot < 0.999) {
+							if(dot < -1.0)
+								dot = -1.0;
+						}
+						else {
+							if(dot > 1.0)
+								dot = 1.0;
+						}
+						
+						// dot is now in the range -1 to +1, where 0 is a rightangle between target rotation and current rotation.
+						// Therefore, if we take 35% of the acceleration and multiply that by the absolute value of dot
+						// we'll achieve the goal of slight off-axis acceleration, scaling up to 35% when it's almost parallel, and then the
+						// normal code will take over when rotating is false or vector movement is true, as this entire block is only executed as
+						// an else to the standard rotation/accel block.
+						double absdot = dot < 0 ? 0-dot : dot; 
+						double ratio = absdot * offAxisThrustMultiplier; // 35% thrust scaled down to zero sideways.
+						double timeLeft = time;
+						do {
+							double take = 0;
+							obj.acceleration = accToGoal(a, take, dest - obj.position, destVel - obj.velocity) * ratio;
+							take = min(timeLeft, max(take, 0.01));
+							obj.position += obj.acceleration * (take * take * 0.5);
+							obj.velocity += obj.acceleration * take;
+							timeLeft -= take;
+						} while(timeLeft > 0.0001);
+					}
 				}
 			}
 			else {

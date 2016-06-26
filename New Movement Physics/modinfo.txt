@@ -1,13 +1,13 @@
 	Name: New Movement Physics
 	Compatibility: 200
 	Description: <<
-		(Reworked into hopefully a fun mod for everyone!)
-
 		This mod increases the thrust of every engine type, but adds linear velocity drag.  This makes ships accelerate a little slower than they expect (but way faster than unmodded), and slow down a little faster than that.  It also means that any given ship will reach a top speed based on its thrust to mass ratio.  
 
 		From preliminary testing and balancing, this top speed should be slower than any reasonably sized Hyperdrive, so you'll want to use some sort of FTL to get around.  Slowboating it will certainly still work perfectly well, but it takes a bit longer under this movement system.
 
 		It also generally improves maneuverability at low velocities as the drag reduces unwanted lateral velocity, and this is further improved by a general increase to turning speeds.  (As a result this mod is not compatible with my Faster Turning Speed mod as it incorporates that functionality)
+
+		Additionally, this mod enables ships to slowly move laterally without being vector thrust enabled.  This means they can get started or correct their course without needing to be entirely rotated.  By default they have 0% thrust at a 90 degree angle, scaling up to 35% thrust at slightly off angle in either direction, so ships can now (slowly) reverse.  This updates to 100% thrust as soon as they're properly aligned.  To prevent wobble at short range, ships now get additional braking thrust when very close to their point of destination, helping to prevent overshoots, oscillation, and wobble.  This thrust is entirely magical but works really well at just making things easier to control.
 
 		(Icon is still by Lorc)
 	>>
